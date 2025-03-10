@@ -14,13 +14,16 @@ def handle(data):
             # Преобразуем строку в число с плавающей точкой
             value_float = float(value_str)
             
+            # Форматируем число с запятой в качестве разделителя
+            formatted_value = f"{value_float:.3f}".replace('.', ',')
+            
             # Если нужно целое число, преобразуем в int
             value_int = int(value_float)
             
             # Возвращаем результат в виде JSON
             return {
                 "original_value": value_str,
-                "float_value": value_float,
+                "formatted_value": formatted_value,  # Число с запятой
                 "int_value": value_int
             }
         except ValueError:
